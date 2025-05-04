@@ -4,7 +4,7 @@ const { v4: uuid } = require('uuid')
 
 class Agent {
   async start(app) {
-    this.app = app.start()
+    this.app = await app.start()
   }
 
   client() {
