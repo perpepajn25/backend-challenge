@@ -1,8 +1,12 @@
 require('app-module-path').addPath('./')
 
-const app = require('app').start()
+let app;
 
-// Export http handler
 exports.handler = async function (event, context) {
-  return await app.server.run(event, context)
-}
+  if (!app) {
+    // await the start method to ensure the db connection is established before first request
+    app = await require('app').start();
+  }
+
+  return await app.server.run(event, context);
+};
