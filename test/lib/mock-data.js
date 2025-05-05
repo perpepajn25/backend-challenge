@@ -58,11 +58,12 @@ class MockData {
     return userService.create(data)
   }
 
-   /**
+  /**
    * @method mockNote
    */
-   async mockNote(options = {}) {
-    const user = await this.mockUser();
+  async mockNote(options = {}) {
+    // associate note to an existing user as default
+    const user = await this.mockUser()
 
     const data = Object.assign(
       {
