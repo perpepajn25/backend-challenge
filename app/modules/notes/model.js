@@ -13,7 +13,7 @@ class NoteModel extends Model {
         trim: true,
         required: true
       },
-      userId: {
+      user: {
         type: String,
         ref: 'User',
         required: true,
